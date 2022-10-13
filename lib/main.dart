@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:i_a_rich/lesson_one.dart';
 import 'package:i_a_rich/lesson_two.dart';
 
 void main() {

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class LessonOne extends StatelessWidget {
   const LessonOne({Key? key}) : super(key: key);
   void buttonOnPressed(String msg) {
+    // ignore: avoid_print
     print('$msg Clicked');
   }
 

@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:i_a_rich/age.dart';
 
 class LessonTwo extends StatefulWidget {
   const LessonTwo({Key? key}) : super(key: key);
@@ -10,87 +9,67 @@ class LessonTwo extends StatefulWidget {
 }
 
 class _LessonTwoState extends State<LessonTwo> {
-  String name = 'Hello Mortadha';
-  String text1 = 'Hello World!';
+  bool passwordVisible = true;
+  var myController = TextEditingController();
+  int? str = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('AppBar Title'),
-        ),
-        body: Container(
-          //color: Colors.black,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-                Container(
-                  margin: const EdgeInsets.all(8),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Text Field',
-                      labelStyle: TextStyle(fontSize: 30),
-                      hintText: 'Enter Text',
-                      hintStyle: TextStyle(fontSize: 20),
-                    ),
-                    keyboardType: TextInputType.text,
+      appBar: AppBar(
+        title: const Text('AppBar Title'),
+      ),
+      // ignore: avoid_unnecessary_containers
+      body: Container(
+        //color: Colors.black,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
+              Container(
+                margin: const EdgeInsets.all(8),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Birth Year',
+                    labelStyle: TextStyle(fontSize: 30),
+                    hintText: 'Enter Your Birth Year',
+                    hintStyle: TextStyle(fontSize: 20),
+                  ),
+                  controller: myController,
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(8),
+                child: ElevatedButton(
+                  onPressed: () => setState(() {
+                    AgeCalculator(int.parse(myController.text));
+                    str=AgeCalculator.age;
+                  }),
+                  style: ButtonStyle(
+                      padding: MaterialStateProperty.all(
+                          const EdgeInsets.fromLTRB(30, 10, 30, 10))),
+                  child: const Text(
+                    'Get Value',
+                    style: TextStyle(fontSize: 30),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.all(8),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Name',
-                      labelStyle: TextStyle(fontSize: 30),
-                      hintText: 'Enter Name',
-                      hintStyle: TextStyle(fontSize: 20),
-                      icon: Icon(Icons.person_outline),
-                    ),
-                    keyboardType: TextInputType.text,
+              ),
+              Container(
+                margin: const EdgeInsets.all(8),
+                child:  Text(
+                  'Your Age is $str Years Old',
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.all(8),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'E-Mail',
-                      labelStyle: TextStyle(fontSize: 30),
-                      hintText: 'Enter E-Mail',
-                      hintStyle: TextStyle(fontSize: 20),
-                      icon: Icon(Icons.alternate_email),
-                    ),
-                    keyboardType: TextInputType.text,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(8),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      labelStyle: TextStyle(fontSize: 30),
-                      hintText: 'Enter Password',
-                      hintStyle: TextStyle(fontSize: 20),
-                    ),
-                    keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(8),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Phone Number',
-                        labelStyle: TextStyle(fontSize: 30),
-                        hintText: 'Enter Phone Number',
-                        hintStyle: TextStyle(fontSize: 20),
-                        icon: Icon(Icons.phone)),
-                    keyboardType: TextInputType.number,
-                  ),
-                ),
-                const SizedBox(height: 20),
-              ],
-            ),
+              const SizedBox(height: 20),
+            ],
           ),
-        ));
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {});
+        },
+      ),
+    );
   }
 }
