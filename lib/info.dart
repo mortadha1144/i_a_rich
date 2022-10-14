@@ -3,7 +3,7 @@ class Info {
   int height;
   DateTime date;
 
-  Info({
+ Info({
     required this.name,
     required this.height,
     required this.date,

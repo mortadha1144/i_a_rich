@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i_a_rich/lesson_three.dart';
+import 'package:i_a_rich/lesson_four.dart';
 //import 'package:i_a_rich/lesson_two.dart';
 
 void main() {
@@ -11,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        accentColor: Colors.pinkAccent,
+      ),
       debugShowCheckedModeBanner: false,
-      home: LessonThree(),
+      home: LessonFour(),
     );
   }
 }
