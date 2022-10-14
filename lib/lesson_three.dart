@@ -14,7 +14,7 @@ class _LessonThreeState extends State<LessonThree> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AppBar Title'),
+        title: const Text('AppBar Title',style: TextStyle(color: Colors.black),),
       ),
       body: Container(
         //margin: const EdgeInsets.all(18),
